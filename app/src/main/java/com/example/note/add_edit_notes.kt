@@ -6,8 +6,12 @@ import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.Spannable
 import android.text.SpannableString
+import android.text.SpannableStringBuilder
 import android.text.Spanned
+import android.text.TextWatcher
 import android.text.style.StyleSpan
 import android.text.style.UnderlineSpan
 import android.util.Log
@@ -89,89 +93,51 @@ class add_edit_notes : AppCompatActivity() {
         binding.yellowPriority.setOnClickListener {
             setpriorityyellow()
         }
+
+
         var bold = false
-        var italicc = "off"
-        var underlinec = "off"
+        var italicc = false
+        var underlinec = false
         binding.boldButton.setOnClickListener {
 
             if (bold) {
                 bold = !bold
                 binding.boldButton.setBackgroundResource(R.drawable.red2)
-                binding.editText.setOnKeyListener { v, keyCode, event ->
-                    val inputText = binding.editText.text.toString()
-
-                    // Create a SpannableString with bold formatting
-                    val spannable = SpannableString(inputText)
-                    val boldSpan = StyleSpan(Typeface.BOLD)
-                    spannable.setSpan(boldSpan, 0, spannable.length, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-
-                    // Set the formatted SpannableString back to EditText
-                    binding.editText.setText(spannable)
-                    false
-                }
-
+                binding.editText.setTypeface(Typeface.DEFAULT_BOLD)
             } else {
                 binding.boldButton.setBackgroundColor(Color.TRANSPARENT)
+                binding.editText.setTypeface(Typeface.DEFAULT)
                 bold = !bold
-               binding.editText.setOnKeyListener { v, keyCode, event ->
-                   val inputText = binding.editText.text.toString()
-
-                   // Create a SpannableString with normal (non-bold) formatting
-                   val spannable = SpannableString(inputText)
-                   val normalSpan = StyleSpan(Typeface.NORMAL)
-                   spannable.setSpan(
-                       normalSpan,
-                       0,
-                       spannable.length,
-                       SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
-                   )
-
-                   // Set the formatted SpannableString back to EditText
-                   binding.editText.setText(spannable)
-
-                   false
-               }
-
             }
 
         }
 
         binding.underline.setOnClickListener {
-            if (underlinec == "off") {
+            if (underlinec) {
                 binding.underline.setBackgroundResource(R.drawable.red2)
-//                val inputText = binding.editText.text.toString()
-//
-//                // Create a SpannableString with underline formatting
-//                val spannable = SpannableString(inputText)
-//                spannable.setSpan(UnderlineSpan(), 0, spannable.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-//
-//                // Set the formatted SpannableString back to EditText
-//                binding.editText.setText(spannable)
-//
-//                false
+                binding.editText.setTypeface(Typeface.DEFAULT,Typeface.BOLD_ITALIC)
+                underlinec = !underlinec
             } else {
                 binding.underline.setBackgroundColor(Color.TRANSPARENT)
                 binding.editText.setTypeface(Typeface.DEFAULT)
-                underlinec = "off"
+                underlinec = !underlinec
             }
 
         }
 
         binding.italic.setOnClickListener {
-            if (italicc == "off") {
+            if (italicc) {
                 binding.italic.setBackgroundResource(R.drawable.red2)
                 binding.editText.setTypeface(Typeface.DEFAULT, Typeface.ITALIC)
-                italicc = "on"
+                italicc = !italicc
             } else {
                 binding.italic.setBackgroundColor(Color.TRANSPARENT)
                 binding.editText.setTypeface(Typeface.DEFAULT, Typeface.NORMAL)
-                italicc = "off"
+                italicc = !italicc
             }
-
         }
-    }
 
+    }
 
     private fun setpriorityyellow() {
         binding.yellowPriority.setImageResource(R.drawable.done_button)
@@ -225,20 +191,20 @@ class add_edit_notes : AppCompatActivity() {
     private fun saveNote() {
 
         if (tittle.trim().isNotEmpty() and content.trim().isNotEmpty()) {
-           if(deletenote){
-               setResult(Constants.UPDATE_REQ, Intent().apply {
-                   putExtra(Constants.Tittle, tittle)
-                   Log.d("beforedeltepassed", "working $tittle")
-                   Log.d("beforedeltepassed", "working ${formatter.format(Date())}")
-                   putExtra(Constants.Content, content)
-                   Log.d("beforedeltepassed", "working $content $tittle")
-                   putExtra(Constants.Priority.toString(), priority)
-                   Log.d("beforedeltepassed", "working $priority")
-                   putExtra(Constants.Date, olddate)
-                   putExtra(Constants.id.toString(), oldid)
-                   putExtra(Constants.Delete.toString(),true)
-               })
-           }else if (isUpdate and !deletenote) {
+            if (deletenote) {
+                setResult(Constants.UPDATE_REQ, Intent().apply {
+                    putExtra(Constants.Tittle, tittle)
+                    Log.d("beforedeltepassed", "working $tittle")
+                    Log.d("beforedeltepassed", "working ${formatter.format(Date())}")
+                    putExtra(Constants.Content, content)
+                    Log.d("beforedeltepassed", "working $content $tittle")
+                    putExtra(Constants.Priority.toString(), priority)
+                    Log.d("beforedeltepassed", "working $priority")
+                    putExtra(Constants.Date, olddate)
+                    putExtra(Constants.id.toString(), oldid)
+                    putExtra(Constants.Delete.toString(), true)
+                })
+            } else if (isUpdate and !deletenote) {
                 Log.d("noteclicked for sending", "working")
                 setResult(Constants.UPDATE_REQ, Intent().apply {
                     putExtra(Constants.Tittle, tittle)
@@ -250,7 +216,7 @@ class add_edit_notes : AppCompatActivity() {
                     Log.d("beforefinishupdate", "working $priority")
                     putExtra(Constants.Date, olddate)
                     putExtra(Constants.id.toString(), oldid)
-                    putExtra(Constants.Delete.toString(),false)
+                    putExtra(Constants.Delete.toString(), false)
                 })
             } else {
                 setResult(Activity.RESULT_OK, Intent().apply {
@@ -290,13 +256,13 @@ class add_edit_notes : AppCompatActivity() {
             R.id.delete_button -> {
                 setValues()
                 val BottomSheetDialog = BottomSheetDialog(this)
-                val view = layoutInflater.inflate(R.layout.delete_dialog,null)
+                val view = layoutInflater.inflate(R.layout.delete_dialog, null)
 
                 val yesButton = view.findViewById<Button>(R.id.yes_button)
                 val noButton = view.findViewById<Button>(R.id.No_button)
 
                 yesButton.setOnClickListener {
-                    deletenote=true
+                    deletenote = true
                     saveNote()
                     BottomSheetDialog.dismiss()
                 }
@@ -306,10 +272,21 @@ class add_edit_notes : AppCompatActivity() {
                 BottomSheetDialog.setContentView(view)
                 BottomSheetDialog.show()
             }
+
+            R.id.share_button -> {
+
+                setValues()
+                val sendIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, "$tittle \n\n $content")
+                    type = "text/plain"
+                }
+
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
-
-
-
 }
+
