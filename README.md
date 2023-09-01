@@ -1,6 +1,5 @@
-# NoteMakeer
-<h1>Note++ - A Feature-rich Note Taking App<h1>
-<p></p>Note++ is a versatile note-taking application that allows you to efficiently organize and manage your notes. With a user-friendly interface and a range of powerful features, Note++ simplifies the process of note-taking, making it easier than ever to keep track of your thoughts, ideas, and tasks.</p>
+<h1><center>Note++ - A Feature-rich Note Taking App</centre></h1>
+<p>Note++ is a versatile note-taking application that allows you to efficiently organize and manage your notes. With a user-friendly interface and a range of powerful features, Note++ simplifies the process of note-taking, making it easier than ever to keep track of your thoughts, ideas, and tasks.</p>
 
 <h2>Features</h2>
 <h3>1. Create and Organize Notes</h3>
