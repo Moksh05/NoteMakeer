@@ -1,16 +1,26 @@
-<h1><center>Note++ - A Feature-rich Note Taking App</centre></h1>
-<p>Note++ is a versatile note-taking application that allows you to efficiently organize and manage your notes. With a user-friendly interface and a range of powerful features, Note++ simplifies the process of note-taking, making it easier than ever to keep track of your thoughts, ideas, and tasks.</p>
+# Note++ App
 
-<h2>Features</h2>
-<h3>1. Create and Organize Notes</h3>
-Create notes effortlessly with a user-friendly editor.
-Organize your notes into categories, tags, or folders for easy access.
-Assign priorities to your notes to help you focus on what matters most.
-<h3>2. Search and Filter</h3>
-Seamlessly search for notes using keywords, titles, or content.
-Filter notes based on priority to quickly find important tasks.
-Sort notes by date, priority, or custom criteria.
-<h3>3. Customize Text Styles</h3>
-Easily format your text with bold, italic, and underline options.
-Change the font size and color to suit your preferences.
-Enhance readability by adjusting line spacing and paragraph alignment.
+![Note++ App](note-plus-plus-screenshot.png)
+
+Note++ is a feature-rich note-taking app developed as a learning project using Kotlin, XML, Android Studio, MVVM architecture, and Room Database. It provides a user-friendly interface for maintaining and organizing your notes effectively.
+
+## Table of Contents
+
+- [Features](#features)
+- [Screenshots](#screenshots)
+
+## Features
+
+- Create, edit, and delete notes.
+- Assign priority colors to each note to indicate its importance.
+- Filter notes by priority to focus on high-priority tasks.
+- Search bar for quick and easy note retrieval.
+- Formatting options for text, including bold and italic.
+- Data persistence using Room Database.
+- MVVM architecture for clean and organized code.
+
+## Screenshots
+
+![Note++ App Screenshot 1](note-plus-plus-screenshot1.png)
+![Note++ App Screenshot 2](note-plus-plus-screenshot2.png)
+
