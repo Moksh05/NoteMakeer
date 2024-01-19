@@ -7,7 +7,7 @@ Note++ is a feature-rich note-taking app developed as a learning project using K
 ## Table of Contents
 
 - [Features](#features)
-- [Technology Used](#Technology Used)
+- [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
 
 ## Features
@@ -21,7 +21,7 @@ Note++ is a feature-rich note-taking app developed as a learning project using K
 - MVVM architecture for clean and organized code.
 
 
-##Technology Used
+## Technology Used
 - **Kotlin and Android Studio:**
   - Developed using Kotlin programming language in Android Studio.
 
