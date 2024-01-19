@@ -1,7 +1,7 @@
 # Note++ App
 
-<p align="center">
-  <img src="Screenshots/Notesicon.png" width="50" height="50" alt="Screenshot 5">
+<p align="left">
+  <img src="Screenshots/Notesicon.png" width="80" height="80" alt="Screenshot 5">
 </p>
 
 
