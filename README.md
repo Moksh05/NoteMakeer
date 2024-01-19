@@ -7,6 +7,7 @@ Note++ is a feature-rich note-taking app developed as a learning project using K
 ## Table of Contents
 
 - [Features](#features)
+- [Technology Used](#Technology Used)
 - [Screenshots](#screenshots)
 
 ## Features
@@ -19,8 +20,33 @@ Note++ is a feature-rich note-taking app developed as a learning project using K
 - Data persistence using Room Database.
 - MVVM architecture for clean and organized code.
 
+
+##Technology Used
+- **Kotlin and Android Studio:**
+  - Developed using Kotlin programming language in Android Studio.
+
+- **Room:**
+  - Room database for data storage.
+
+- **Live Data**
+  - To observe changes in data and do changes in UI accordingly
+
+- **MVVM**
+  - Used Model-View-ViewModel architecture 
+
+
 ## Screenshots
 
-![Note++ App Screenshot 1](note-plus-plus-screenshot1.png)
-![Note++ App Screenshot 2](note-plus-plus-screenshot2.png)
+<p align="center">
+  <img src="Screenshots/ss1.jpg" width="200" alt="Screenshot 5">
+  <img src="Screenshots/ss2.jpg" width="200" alt="Screenshot 6">
+  <img src="Screenshots/ss3.jpg" width="200" alt="Screenshot 7">
+  <img src="Screenshots/ss4.jpg" width="200" alt="Screenshot 8">
+</p>
 
+<p align="center">
+  <img src="Screenshots/ss5.jpg" width="200" alt="Screenshot 5">
+  <img src="Screenshots/ss6.jpg" width="200" alt="Screenshot 6">
+  <img src="Screenshots/ss7.jpg" width="200" alt="Screenshot 7">
+  <img src="Screenshots/ss8.jpg" width="200" alt="Screenshot 8">
+</p>
