@@ -1,6 +1,9 @@
 # Note++ App
 
-![Note++ App](note-plus-plus-screenshot.png)
+<p align="center">
+  <img src="Screenshots/Notesicon.png" width="50" height="50" alt="Screenshot 5">
+</p>
+
 
 Note++ is a feature-rich note-taking app developed as a learning project using Kotlin, XML, Android Studio, MVVM architecture, and Room Database. It provides a user-friendly interface for maintaining and organizing your notes effectively.
 
